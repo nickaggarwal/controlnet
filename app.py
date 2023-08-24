@@ -7,6 +7,7 @@ from diffusers import ControlNetModel, UniPCMultistepScheduler
 from controlnet_inpaint import StableDiffusionControlNetInpaintPipeline
 
 
+
 class InferlessPythonModel:
     def download_image(url):
         response = requests.get(url)
