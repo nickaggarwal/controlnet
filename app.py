@@ -5,6 +5,7 @@ import base64
 from io import BytesIO
 from diffusers import ControlNetModel, UniPCMultistepScheduler
 from controlnet_inpaint import StableDiffusionControlNetInpaintPipeline
+import os
 
 
 
@@ -29,6 +30,9 @@ class InferlessPythonModel:
         image_url = inputs["image_url"]
         mask_url = inputs["mask_url"]
         control_url = inputs["control_url"]
+
+        AWS_KEY = os.getenv("AWS_KEY")
+        print("Aws key is " + AWS_KEY)
         
         init_image = InferlessPythonModel.download_image(image_url).resize((512, 512))
         mask_image = InferlessPythonModel.download_image(mask_url).resize((512, 512))
