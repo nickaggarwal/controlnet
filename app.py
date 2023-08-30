@@ -7,12 +7,12 @@ from diffusers import ControlNetModel, UniPCMultistepScheduler
 from controlnet_inpaint import StableDiffusionControlNetInpaintPipeline
 
 
-
 class InferlessPythonModel:
     def download_image(url):
         response = requests.get(url)
         return PIL.Image.open(BytesIO(response.content)).convert("RGB")
 
+    # Adding Comment 
     def initialize(self):
         controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-canny", torch_dtype=torch.float16)
         self.pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained( "runwayml/stable-diffusion-inpainting", 
